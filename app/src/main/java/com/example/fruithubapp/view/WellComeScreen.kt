@@ -32,7 +32,7 @@ import androidx.compose.ui.unit.sp
 import com.example.fruithubapp.R
 
 @Composable
-fun WellComeScreen() {
+fun WellComeScreen(onNavigateToHome: () -> Unit = {}) {
 
     Column(Modifier
         .fillMaxSize()
@@ -83,7 +83,10 @@ fun WellComeScreen() {
 
                 Spacer(Modifier.height(26.dp))
 
-                Button(onClick = {}, Modifier.fillMaxWidth().height(56.dp),
+                Button(onClick = {
+                    onNavigateToHome()
+                },
+                    Modifier.fillMaxWidth().height(56.dp),
                     colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFFF8C42)),
                     shape = RoundedCornerShape(16.dp)) {
                     Text("Let's Continue",
